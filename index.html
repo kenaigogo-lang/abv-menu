@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>ABV 板橋文化店菜單</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<style>
+  /* 版面：頂部店家資訊 → 黏性分類列 → 每個跨頁菜單一張大圖，點圖放大 */
+  :root {
+    --paper: #f3ece0;
+    --surface: #fffaf1;
+    --ink: #2a2622;
+    --muted: #6d6458;
+    --navy: #1f3a7a;
+    --red: #c32032;
+    --line: #ddd2bf;
+    --font: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", "Segoe UI", Tahoma, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #17161a; --surface: #221f24; --ink: #efe8dc; --muted: #a79d8f;
+      --navy: #8ea8ec; --red: #f0697a; --line: #3a353b; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #17161a; --surface: #221f24; --ink: #efe8dc; --muted: #a79d8f;
+    --navy: #8ea8ec; --red: #f0697a; --line: #3a353b; color-scheme: dark;
+  }
+
+  body { background: var(--paper); color: var(--ink); font-family: var(--font); font-size: 15px; line-height: 1.6; }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--surface); }
+  .wrap { max-width: 1100px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+  header { padding-block: 28px 20px; }
+  .eyebrow { font-size: 12px; letter-spacing: .12em; color: var(--red); font-weight: 700; }
+  h1 { margin: 4px 0 10px; font-size: clamp(24px, 5vw, 36px); font-weight: 900; color: var(--navy); line-height: 1.2; text-wrap: balance; }
+  .info { display: flex; flex-wrap: wrap; gap: 8px 20px; color: var(--muted); font-size: 14px; }
+  .info b { color: var(--ink); font-weight: 500; }
+  .note { margin-top: 14px; padding: 10px 14px; border-left: 3px solid var(--red); background: var(--surface); font-size: 14px; }
+
+  nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--surface); border-block: 1px solid var(--line); }
+  nav .wrap { display: flex; gap: 6px; overflow-x: auto; padding-block: 10px; scrollbar-width: none; }
+  nav a { flex: none; padding: 6px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-size: 14px; white-space: nowrap; }
+  nav a:hover, nav a:focus-visible { border-color: var(--navy); color: var(--navy); outline: none; }
+  nav a.on { background: var(--navy); border-color: var(--navy); color: var(--surface); }
+
+  main { display: grid; gap: 36px; padding-block: 28px 48px; }
+  section { scroll-margin-top: calc(64px + env(safe-area-inset-top, 0px)); display: grid; gap: 10px; }
+  section h2 { margin: 0; font-size: 20px; font-weight: 700; display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+  section h2 small { font-size: 13px; font-weight: 400; color: var(--muted); }
+  .page { display: block; width: 100%; padding: 0; border: 1px solid var(--line); background: var(--surface); cursor: zoom-in; border-radius: 4px; overflow: hidden; }
+  .page:focus-visible { outline: 3px solid var(--navy); outline-offset: 2px; }
+  .page img { display: block; width: 100%; height: auto; aspect-ratio: 2048 / 1448; }
+  .hint { font-size: 13px; color: var(--muted); }
+  footer { padding-block: 0 40px; color: var(--muted); font-size: 13px; }
+
+  /* 放大檢視 */
+  .zoom { position: fixed; inset: 0; z-index: 20; background: rgba(10, 10, 12, .94); overflow: auto; -webkit-overflow-scrolling: touch; }
+  .zoom img { display: block; width: 2048px; max-width: none; margin: 0 auto; }
+  .zoom.fit img { width: 100%; max-width: 100%; }
+  .bar { position: fixed; top: calc(12px + env(safe-area-inset-top, 0px)); right: calc(12px + env(safe-area-inset-right, 0px)); display: flex; gap: 8px; z-index: 21; }
+  .bar button { font: 500 14px var(--font); padding: 8px 14px; border-radius: 999px; border: 0; background: #fffaf1; color: #2a2622; cursor: pointer; }
+  .bar button:focus-visible { outline: 3px solid #8ea8ec; }
+  @media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+</head>
+<body>
+
+<header class="wrap">
+  <div class="eyebrow">KOREAN PUB · 韓式餐酒館</div>
+  <h1>ABV Bar &amp; Kitchen 板橋文化店</h1>
+  <div class="info">
+    <span>地址 <b>新北市板橋區文化路一段215、217號</b></span>
+    <span>菜單版本 <b>2026 年 6 月</b></span>
+  </div>
+  <div class="note">每人最低消費：成人及 12 歲以上 450 元、6～11 歲 225 元，未滿 6 歲免低消；所有消費另加 10% 服務費。</div>
+</header>
+
+<nav aria-label="菜單分類">
+  <div class="wrap" id="nav"></div>
+</nav>
+
+<main class="wrap" id="menu"></main>
+
+<footer class="wrap">點餐請填點餐 Excel（下拉選單選菜，金額自動計算）。另有酒單可現場選購。</footer>
+
+<div class="zoom" id="zoom" hidden>
+  <div class="bar">
+    <button type="button" id="fitBtn">縮放</button>
+    <button type="button" id="closeBtn">關閉</button>
+  </div>
+  <img id="zoomImg" alt="">
+</div>
+
+<script>
+  // 菜單跨頁：每張圖對應一個分類，nav 和內容都由這份資料產生
+  const pages = [
+    { id: "chef",   label: "主廚推薦", note: "必點 10 道", src: "img/p02-03.jpg" },
+    { id: "set2",   label: "雙人套餐", note: "$1,388", src: "img/p04-05.jpg" },
+    { id: "set46",  label: "四人／六人套餐", note: "$2,788 ／ $4,088", src: "img/p06-07.jpg" },
+    { id: "bbq",    label: "韓式烤肉", note: "豬肉、牛肉單點", src: "img/p08-09.jpg" },
+    { id: "stew",   label: "鍋物・小鍋", note: "鍋物適合 2–4 人", src: "img/p10-11.jpg" },
+    { id: "hot",    label: "熱菜・炸物・炸雞", note: "", src: "img/p12-13.jpg" },
+    { id: "staple", label: "主食・煎餅・甜點", note: "", src: "img/p14-15.jpg" },
+  ];
+
+  const nav = document.getElementById("nav");
+  const menu = document.getElementById("menu");
+  pages.forEach((p, i) => {
+    nav.insertAdjacentHTML("beforeend", `<a href="#${p.id}" data-id="${p.id}">${p.label}</a>`);
+    menu.insertAdjacentHTML("beforeend", `
+      <section id="${p.id}">
+        <h2>${p.label}${p.note ? `<small>${p.note}</small>` : ""}</h2>
+        <button class="page" type="button" data-src="${p.src}" aria-label="放大 ${p.label} 菜單">
+          <img src="${p.src}" alt="${p.label} 菜單" ${i > 0 ? 'loading="lazy"' : ""} width="2048" height="1448">
+        </button>
+        ${i === 0 ? '<div class="hint">點圖片可放大看細節</div>' : ""}
+      </section>`);
+  });
+
+  // 捲動時標示目前分類
+  const links = [...nav.querySelectorAll("a")];
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      links.forEach(a => a.classList.toggle("on", a.dataset.id === e.target.id));
+      const on = nav.querySelector(".on");
+      if (on) on.scrollIntoView({ block: "nearest", inline: "nearest" });
+    });
+  }, { rootMargin: "-40% 0px -55% 0px" });
+  document.querySelectorAll("section").forEach(s => io.observe(s));
+
+  // 放大檢視：預設原尺寸可拖曳，按「縮放」切換成符合螢幕寬度
+  const zoom = document.getElementById("zoom");
+  const zoomImg = document.getElementById("zoomImg");
+  menu.addEventListener("click", e => {
+    const btn = e.target.closest(".page");
+    if (!btn) return;
+    zoomImg.src = btn.dataset.src;
+    zoomImg.alt = btn.getAttribute("aria-label");
+    zoom.classList.remove("fit");
+    zoom.hidden = false;
+    zoom.scrollTo(0, 0);
+    document.getElementById("closeBtn").focus();
+  });
+  const close = () => { zoom.hidden = true; };
+  document.getElementById("closeBtn").addEventListener("click", close);
+  document.getElementById("fitBtn").addEventListener("click", () => zoom.classList.toggle("fit"));
+  document.addEventListener("keydown", e => { if (e.key === "Escape") close(); });
+
+  if (location.hash) document.querySelector(location.hash)?.scrollIntoView();
+</script>
+</body>
+</html>
